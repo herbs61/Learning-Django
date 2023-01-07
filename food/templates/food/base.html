@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{ % static 'food/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">Food App</a>
+    
+        <div class="navbar">
+            <a href="{% url 'food:create_item' %}" class="nav-item nav-link">Add item</a>
+            <a href="#" class="nav-item nav-link">Delete item</a>
+            <a href="#" class="nav-item nav-link">View item</a>
+       </div>
+    </nav>
+
+    {% if messages%}
+        {% for message in messages%}
+        <div class="alert alert-{{ message.tags }}">
+            {{message}}
+        </div>
+            
+        {% endfor %}
+    {% endif %}
+    
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
