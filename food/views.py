@@ -49,7 +49,7 @@ def create_item(request):
         
     return render(request,'food/item-form.html',{'form':form})
 
-#Update
+#Update the food
 def update_item(request,id):
     item = Item.objects.get(id=id)
     form = ItemForm(request.POST or None, instance=item)
@@ -60,7 +60,7 @@ def update_item(request,id):
     
     return render(request,'food/item-form.html',{'form':form,'item':item})
 
-#Delete
+#Delete a particular food
 def delete_item(request,id):
     item = Item.objects.get(id=id)
    

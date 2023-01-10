@@ -23,11 +23,17 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    #The admin
     path('admin/', admin.site.urls),
+    #The food
     path('food/',include('food.urls')),
+    #The register
     path('register/',user_views.register,name='register'),
+    #The login
 path('login/',authentication_views.LoginView.as_view(template_name='users/login.html'),name='login'),
+#The logout
 path('logout/',authentication_views.LogoutView.as_view(template_name='users/logout.html'),name='logout'),
+#The profile
 path('profile/',user_views.profilepage,name='profile'),
 ]
 
